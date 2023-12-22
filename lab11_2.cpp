@@ -12,6 +12,9 @@ int drawCard(void){
 }
 
 int calScore(int x,int y,int z){
+	if (x>10) x=10;
+	if (y>10) y=10;
+	if (z>10) z=10;
 	return (x+y+z)%10;
 }
 
@@ -19,7 +22,7 @@ int findYugiAction(int s){
 	if(s == 9) return 2; // Yugi will definitely stay (2) when current score (s) is equal to 9
 	else if(s < 6) return 1; // Yugi will definitely draw (1) when current score (s) is less than 6
 	else{
-		if((rand() % 100 )>= 69) return 1;
+		if((rand() % 100 )<= 69) return 1;
         else return 2;
 	}
 }
